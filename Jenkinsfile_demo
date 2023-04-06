@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                   dir('my-app') {
-                    sh "mvn package -DskipTests=true"
+                    bat "mvn package -DskipTests=true"
                     }
                 }
             }
