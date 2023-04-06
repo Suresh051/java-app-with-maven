@@ -6,12 +6,16 @@ pipeline {
         maven "LocalMaven"
     }
 
-    stages {      
-           stage("Maven Build") {
+    stages {
+        stage('Build') {
             steps {
-                    bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                script {
+                    dir('my-app') {
+                // To run Maven on a Windows agent, use
+                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                    }
+                }
             }
-        }
 
             post {
                 // If Maven was able to run the tests, even if some of the test
@@ -23,3 +27,4 @@ pipeline {
             }
         }
     }
+}
