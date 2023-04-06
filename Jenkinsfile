@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                 dir('my-app') {
-                    bat "mvn -Dmaven.test.failure.ignore=true clean package""
+                    bat "mvn -Dmaven.test.failure.ignore=true clean package"
                 }
                 }
             }
