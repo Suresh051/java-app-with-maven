@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                dir('my-app') {
                 // Get some code from a GitHub repository
                 //git 'https://github.com/devopshint/java-app-with-maven.git'
 
@@ -16,8 +17,8 @@ pipeline {
                 // sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 // To run Maven on a Windows agent, use
-                bat "cd my-app"
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                }
             }
 
             post {
